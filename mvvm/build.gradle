@@ -1,0 +1,106 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures{
+        dataBinding = true
+    }
+}
+kapt {
+    generateStubs = true
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //retrofit2
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+    // RxJava
+    api 'io.reactivex:rxjava:1.3.0'
+    api 'io.reactivex:rxandroid:1.2.1'
+    //okhttp3
+    api 'com.squareup.okhttp3:okhttp:4.9.0'
+    api 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+
+    /*facebook工具包：可以通过chrome浏览器进行抓包操作 */
+    api 'com.facebook.stetho:stetho:1.5.0'
+    api 'com.facebook.stetho:stetho-okhttp3:1.4.1'
+
+    //jetpack libs
+    def lifecycle_version = "2.2.0"
+    // ViewModel
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    //paging
+    def paging_version = "3.0.0-alpha07"
+    api "androidx.paging:paging-runtime:$paging_version"
+    api "androidx.paging:paging-common:$paging_version"
+    //room
+    def room_version = "2.2.5"
+    api "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    def nav_version = "2.3.2"
+    // navigation
+    api "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    api "androidx.navigation:navigation-ui-ktx:$nav_version"
+    //vp2
+    api "androidx.viewpager2:viewpager2:1.0.0"
+    //沉浸式状态栏库
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
+    api 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
+    //侧滑库
+    api 'cn.bingoogolapple:bga-swipebacklayout:2.0.1@aar'
+    //ios风格对话框 v3
+    api 'com.kongzue.dialog_v3:dialog:3.1.8'
+    //glide
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    //smart智能刷新库
+    api  'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
+    api  'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
+    api  'com.scwang.smart:refresh-header-radar:2.0.3'       //雷达刷新头
+    api  'com.scwang.smart:refresh-header-falsify:2.0.3'     //虚拟刷新头
+    api  'com.scwang.smart:refresh-header-material:2.0.3'    //谷歌刷新头
+    api  'com.scwang.smart:refresh-header-two-level:2.0.3'   //二级刷新头
+    api  'com.scwang.smart:refresh-footer-ball:2.0.3'        //球脉冲加载
+    api  'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
+    //material:material
+    api 'com.google.android.material:material:1.2.0-alpha02'
+    // Apache commons - lang3
+    implementation 'org.apache.commons:commons-lang3:3.9'
+}

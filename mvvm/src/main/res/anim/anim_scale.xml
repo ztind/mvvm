@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 渐变透明的动画效果 -->
+    <!--
+        fromAlpha 动画起始透明的 1.0完全不透明
+        toAlpha 动画结束时透明的 0.0完全透明
+        startOffset 设置启动时间
+        duration 属性动画持续时间
+    -->
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:startOffset="0"
+        android:duration="500"
+        />
+    <!--缩放动画-->
+    <scale
+        android:fromXScale="3.0"
+        android:toXScale="1.0"
+        android:fromYScale="3.0"
+        android:toYScale="1.0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:fillAfter="true"
+        android:duration="500" />
+
+</set>

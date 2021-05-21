@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_above="@+id/msg"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@mipmap/img_lib_nonetwork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+    <TextView
+        android:id="@+id/msg"
+        android:textSize="14sp"
+        android:text="暂无网络"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:textColor="#ffffff"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/retry"
+        android:layout_below="@+id/msg"
+        android:text="点击重试"
+        android:layout_marginTop="8dp"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:textColor="#9A7CFE"
+        android:background="@drawable/bg_lib_9a7cfe_13_shape"
+        android:paddingTop="5.5dp"
+        android:paddingBottom="5.5dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
