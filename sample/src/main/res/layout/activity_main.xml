@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activity.MainActivity">
-
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp"
+            android:layout_above="@+id/bottom_nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="@color/color_navigation"
+            app:menu="@menu/home_bottom_nav_menu"
+            app:labelVisibilityMode="labeled"
+            app:itemBackground="@null"
+            app:elevation="10dp"
+            app:itemIconSize="20dp"
+            android:layout_alignParentBottom="true"
+            app:itemTextAppearanceInactive="@style/bottom_normal_text"
+            app:itemTextAppearanceActive="@style/bottom_selected_text"
+            />
+    </RelativeLayout>
 </layout>

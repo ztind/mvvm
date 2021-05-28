@@ -20,4 +20,14 @@
         <item name="android:windowFullscreen">true</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <!--tab文字没有选中的样式-->
+    <style name="bottom_normal_text">
+        <item name="android:textColor">@color/color_tab_normal</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <!--tab文字选中的样式-->
+    <style name="bottom_selected_text">
+        <item name="android:textColor">@color/color_tab_select</item>
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

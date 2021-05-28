@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">KotlinMvvmJetpackAndroidProject</string>
+
+    <string name="title_home">首页</string>
+    <string name="title_dynamic">动态</string>
+    <string name="title_message">消息</string>
+    <string name="title_mine">我的</string>
 </resources>
