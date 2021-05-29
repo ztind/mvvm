@@ -14,28 +14,28 @@ sample：project demo
 
 #### 使用示例
 '''
-class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
-    override fun setLayoutResId(): Int = R.layout.activity_main
-}
-'''
-
-'''
-class MainViewModel :BaseViewModel<MainRepository,ActivityMainBinding>(){
-    private val mActivity by lazy {
-        mLifecycleOwner as MainActivity
+    class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
+        override fun setLayoutResId(): Int = R.layout.activity_main
     }
-    override fun initView() {
-
-    }
-
-    override fun initData() {
-
-    }
-}
 '''
 
 '''
-class MainRepository :BaseRepository {
+    class MainViewModel :BaseViewModel<MainRepository,ActivityMainBinding>(){
+        private val mActivity by lazy {
+            mLifecycleOwner as MainActivity
+        }
+        override fun initView() {
 
-}
+        }
+
+        override fun initData() {
+
+        }
+    }
+'''
+
+'''
+    class MainRepository :BaseRepository {
+
+    }
 '''
