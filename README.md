@@ -1,9 +1,9 @@
 
-#### 软件架构
-mvvm:base library <br/>
+#### 工程概要
+mvvm：base library <br/>
 sample：project demo
 
-#### 技术概要
+#### 软件架构
 - Kotlin
 - MVVM + Jetpack + Repository + Retrofit2 + Okhttp3 + Flow + Coroutines
 
