@@ -8,4 +8,5 @@ Author:ZT
 Date:2021/5/28
  */
 class MainRepository :BaseRepository {
+
 }

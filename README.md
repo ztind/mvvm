@@ -11,3 +11,31 @@ sample：project demo
 - JDK 1.8
 - Gradle 6.5
 - Android Studio 4.1.2
+
+#### 使用示例
+'''
+class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
+    override fun setLayoutResId(): Int = R.layout.activity_main
+}
+'''
+
+'''
+class MainViewModel :BaseViewModel<MainRepository,ActivityMainBinding>(){
+    private val mActivity by lazy {
+        mLifecycleOwner as MainActivity
+    }
+    override fun initView() {
+
+    }
+
+    override fun initData() {
+
+    }
+}
+'''
+
+'''
+class MainRepository :BaseRepository {
+
+}
+'''
