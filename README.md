@@ -13,7 +13,7 @@ sample：project demo
 - Android Studio 4.1.2
 
 #### 使用示例
-- Activity
+- For Activity
 
     Activity:
 
@@ -42,7 +42,7 @@ sample：project demo
 
         }
 
-- Fragment
+- For Fragment
 
     Fragment:
 
