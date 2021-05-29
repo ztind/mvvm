@@ -13,15 +13,14 @@ sample：project demo
 - Android Studio 4.1.2
 
 #### 使用示例
-'''
+
+Activity:
 
     class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
-        override fun setLayoutResId(): Int = R.layout.activity_main
+            override fun setLayoutResId(): Int = R.layout.activity_main
     }
 
-'''
-
-'''
+ViewModel:
 
     class MainViewModel :BaseViewModel<MainRepository,ActivityMainBinding>(){
         private val mActivity by lazy {
@@ -36,12 +35,10 @@ sample：project demo
         }
     }
 
-'''
-
-'''
+Repository:
 
     class MainRepository :BaseRepository {
 
     }
 
-'''
+
