@@ -6,7 +6,7 @@ import android.util.Log
  */
 object LoggerUtil {
     const val DEBUG = true
-    private val TAG = "hb"
+    private val TAG = "sample"
     fun v(message :String){
         if (DEBUG)Log.v(TAG,message)
     }
