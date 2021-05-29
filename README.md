@@ -7,11 +7,6 @@ sample：project demo
 - Kotlin
 - MVVM + Jetpack + Repository + Retrofit2 + Okhttp3 + Flow + Coroutines
 
-#### 版本说明
-- JDK 1.8
-- Gradle 6.5
-- Android Studio 4.1.2
-
 #### 使用示例
 - For Activity
 
