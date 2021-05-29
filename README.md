@@ -8,6 +8,12 @@ sample：project demo
 - MVVM + Jetpack + Repository + Retrofit2 + Okhttp3 + Flow + Coroutines
 
 #### 使用示例
+- Add mvvm library to you app build.gradle
+
+    dependencies {
+        implementation project(":mvvm")
+    }
+
 - For Activity
 
     Activity:
