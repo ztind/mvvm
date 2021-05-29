@@ -14,6 +14,7 @@ sample：project demo
 
 #### 使用示例
 - Activity
+
     Activity:
 
         class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
@@ -42,11 +43,14 @@ sample：project demo
         }
 
 - Fragment
+
     Fragment:
+
         class MessageFragment : BaseFragment<MessageViewModel,FragmentMessageBinding>() {
             override fun setLayoutResId(): Int = R.layout.fragment_message
         }
     ViewModel:
+
         class MessageViewModel :BaseViewModel<MessageRepository,FragmentMessageBinding>(){
             private val mFragment by lazy {
                 mLifecycleOwner as MessageFragment
@@ -61,6 +65,7 @@ sample：project demo
             }
         }
     Repository:
+
         class MessageRepository : BaseRepository {
 
         }
