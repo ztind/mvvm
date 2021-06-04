@@ -8,7 +8,7 @@
     <!--Appz主背景色-->
     <color name="color_main_background">#FFFFFF</color>
     <!--    导航栏颜色-->
-    <color name="color_navigation">#1E1E1E</color>
+    <color name="color_navigation">#FFFFFF</color>
     <!--状态栏颜色-->
     <color name="color_statusbar">#14121E</color>
     <!--标题栏背景-->
