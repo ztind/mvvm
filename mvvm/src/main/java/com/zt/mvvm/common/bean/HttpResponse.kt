@@ -12,7 +12,6 @@ import retrofit2.http.HTTP
 data class HttpResponse<T>(
     /**
      * 接口返回code
-     * 200 成功
      */
     val code : Int,
     /**
