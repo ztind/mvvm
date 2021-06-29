@@ -20,7 +20,7 @@ import com.zt.mvvm.viewmodel.BaseViewModel
 
 /**
  * Desc:Activity基类
- * Author:朱彤
+ * Author:ZT
  * Date:2021/1/6
  */
 abstract  class BaseActivity<VM : BaseViewModel<*,DB>,DB : ViewDataBinding>: AppCompatActivity(),BGASwipeBackHelper.Delegate{

@@ -4,7 +4,7 @@ import com.zt.mvvm.network.AbstractRetrofits
 
 /**
 Describe：网络请求
-Author:朱彤
+Author:ZT
 Date:2021/5/29
  */
 class Retrofits : AbstractRetrofits() {

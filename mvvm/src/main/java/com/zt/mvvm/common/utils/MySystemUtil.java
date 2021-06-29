@@ -21,15 +21,6 @@ import javax.annotation.Nullable;
 /**
  * <b>Title: </b>系统小工具<br>
  * <b>Description: </b>获取系统相关属性，如：IMEI
- *
- * @author 赵伟
- * <p>
- * 修订历史:
- * <ul>
- * <li>版本&nbsp;&nbsp;&nbsp;&nbsp;修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
- * <hr>
- * <li>v1.0&nbsp;&nbsp;&nbsp;&nbsp;2019-09-26&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建类</li>
- * </ul>
  */
 public class MySystemUtil {
 
@@ -42,14 +33,6 @@ public class MySystemUtil {
      *
      * @param context 上下文
      * @return 客户端ID
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190926&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     public static String getClientId(Activity context) {
         return CLIENT_ID_PREFIX + getIMEI(context, 0);
@@ -61,14 +44,6 @@ public class MySystemUtil {
      *
      * @param context 上下文
      * @param slotId  卡槽Id，它的值为 0、1；
-     * @return IMEI
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190926&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
      * </ul>
      */
     public static String getIMEI(Activity context, int slotId) {
@@ -116,14 +91,6 @@ public class MySystemUtil {
      *
      * @param context 上下文
      * @return Android ID
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190926&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     @SuppressLint("HardwareIds")
     private static String getAndroidId(Context context) {
@@ -135,14 +102,6 @@ public class MySystemUtil {
      * <b>Description: </b>这里写方法的详细描述
      *
      * @return Build信息
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190926&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     private static String getBuildInfo() {
         //这里选用了几个不会随系统更新而改变的值
@@ -161,14 +120,6 @@ public class MySystemUtil {
      *
      * @param context 上下文
      * @return 设备UUID
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190926&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     private static String getDeviceUUID(Context context) {
         return buildDeviceUUID(context);
@@ -180,14 +131,6 @@ public class MySystemUtil {
      *
      * @param context 上下文
      * @return 设备UUID
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190926&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     public static String buildDeviceUUID(Context context) {
         String androidId = getAndroidId(context);
@@ -206,14 +149,6 @@ public class MySystemUtil {
      *
      * @param context 上下文
      * @param uuid    UUID
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190926&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     private static void saveDeviceUUID(Context context, String uuid) {
         context.getSharedPreferences("device_uuid", Context.MODE_PRIVATE)
@@ -228,14 +163,6 @@ public class MySystemUtil {
      *
      * @param context 上下文
      * @return 设备ID
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190926&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     @Nullable
     public static String loadDeviceUUID(Context context) {
@@ -248,14 +175,6 @@ public class MySystemUtil {
      * <b>Description: </b>这里写方法的详细描述
      *
      * @return {@link boolean} true为是模拟器
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190929&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     private static boolean isEmulator() {
         return (Build.MODEL.equals("sdk")) || (Build.MODEL.equals("google_sdk"));
@@ -268,14 +187,6 @@ public class MySystemUtil {
      * @param mContext  上下文
      * @param className 类名
      * @return {@link boolean} 服务是否在运行
-     * @author 赵伟
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20190929&nbsp;&nbsp;&nbsp;&nbsp;赵伟&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     public static boolean isServiceRunning(Context mContext, String className) {
         boolean isRunning = false;
@@ -309,14 +220,6 @@ public class MySystemUtil {
      *
      * @param
      * @return {@link }
-     * @author 李树华
-     * <p>
-     * 修订历史:
-     * <ul>
-     * <li>修改日期&nbsp;&nbsp;&nbsp;&nbsp;作　者&nbsp;&nbsp;&nbsp;&nbsp;变更内容</li>
-     * <hr>
-     * <li>20191021&nbsp;&nbsp;&nbsp;&nbsp;李树华&nbsp;&nbsp;&nbsp;&nbsp;创建方法</li>
-     * </ul>
      */
     public static int getStateBarHeight(Context context) {
         // 获得状态栏高度
