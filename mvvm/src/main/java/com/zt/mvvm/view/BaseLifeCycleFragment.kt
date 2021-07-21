@@ -10,7 +10,7 @@ import com.zt.mvvm.common.utils.StateType
 import com.zt.mvvm.repository.BaseRepository
 import com.zt.mvvm.viewmodel.BaseViewModel
 
-abstract class BaseLifeCycleFragment<VM : BaseViewModel<BaseRepository,DB>,DB : ViewDataBinding> : BaseFragment<VM, DB>(){
+abstract class BaseLifeCycleFragment<VM : BaseViewModel<BaseRepository,VB>,VB : ViewDataBinding> : BaseFragment<VM, VB>(){
 
     override fun initView() {
         //全局网络请求状态监听

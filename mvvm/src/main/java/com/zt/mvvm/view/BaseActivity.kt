@@ -4,6 +4,7 @@ package com.zt.mvvm.view
 import android.content.Context
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
@@ -17,23 +18,31 @@ import com.zt.mvvm.R
 import com.zt.mvvm.common.utils.AppManager
 import com.zt.mvvm.common.utils.CommonUtil
 import com.zt.mvvm.viewmodel.BaseViewModel
+import java.lang.reflect.ParameterizedType
 
 /**
  * Desc:Activity基类
  * Author:ZT
  * Date:2021/1/6
  */
-abstract  class BaseActivity<VM : BaseViewModel<*,DB>,DB : ViewDataBinding>: AppCompatActivity(),BGASwipeBackHelper.Delegate{
+abstract  class BaseActivity<VM : BaseViewModel<*,VB>,VB : ViewDataBinding>: AppCompatActivity(),BGASwipeBackHelper.Delegate{
     //父类里实例化ViewModel
     lateinit var mViewModel : VM
     //databinding
-    protected lateinit var mDataBinding : DB
+    protected lateinit var mDataBinding : VB
     protected lateinit var mSwipeBackHelper: BGASwipeBackHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initSwipeBackFinish()
         super.onCreate(savedInstanceState)
-        mDataBinding = DataBindingUtil.setContentView(this, setLayoutResId())
+
+        //利用反射，调用指定ViewBinding中的inflate方法填充视图
+        val superclass = javaClass.genericSuperclass
+        val aClass = (superclass as ParameterizedType).actualTypeArguments[1] as Class<*>
+        val method = aClass.getMethod("inflate", LayoutInflater::class.java)
+        mDataBinding = method.invoke(null, layoutInflater) as VB
+        setContentView(mDataBinding.root)
+
         mViewModel = ViewModelProvider(this).get(CommonUtil.getClass<VM>(this))
         mViewModel.mBinding = mDataBinding
         mDataBinding.lifecycleOwner = this
@@ -44,9 +53,9 @@ abstract  class BaseActivity<VM : BaseViewModel<*,DB>,DB : ViewDataBinding>: App
         AppManager.addActivity(this)
     }
     /**
-     * 子类实现返回布局文件id
+     * 子类实现返回布局文件id(该方法不用实现，后期移除)
      */
-    abstract fun setLayoutResId() : Int
+    open fun setLayoutResId() : Int = 0
     /**
      * 初始化视图
      */

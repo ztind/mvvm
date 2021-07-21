@@ -16,15 +16,16 @@ import com.zt.mvvm.common.log.LoggerUtil
 import com.zt.mvvm.common.utils.CommonUtil
 import com.zt.mvvm.repository.BaseRepository
 import com.zt.mvvm.viewmodel.BaseViewModel
+import java.lang.reflect.ParameterizedType
 
 /**
  * Fragment基类
  */
-abstract class BaseFragment<VM : BaseViewModel<*,DB>,DB : ViewDataBinding>: Fragment(){
+abstract class BaseFragment<VM : BaseViewModel<*,VB>,VB : ViewDataBinding>: Fragment(){
     //lateinit 则用于只能生命周期流程中进行获取或者初始化的变量，比如 Android 的 onCreate()
     lateinit var mContext : Context
     protected var rootView : View? = null
-    protected lateinit var mDataBinding :DB
+    protected lateinit var mDataBinding :VB
     protected lateinit var mViewModel :VM
 
     override fun onCreateView(
@@ -33,7 +34,12 @@ abstract class BaseFragment<VM : BaseViewModel<*,DB>,DB : ViewDataBinding>: Frag
         savedInstanceState: Bundle?
     ): View? {
         if(rootView==null){
-            mDataBinding = DataBindingUtil.inflate(inflater,setLayoutResId(),container,false)
+            //利用反射，调用指定ViewBinding中的inflate方法填充视图
+            val superclass = javaClass.genericSuperclass
+            val aClass = (superclass as ParameterizedType).actualTypeArguments[1] as Class<*>
+            val method = aClass.getDeclaredMethod("inflate", LayoutInflater::class.java,ViewGroup::class.java, Boolean::class.java)
+            mDataBinding = method.invoke(null, layoutInflater, container, false) as VB
+
             mDataBinding.lifecycleOwner = this
             mViewModel = ViewModelProvider(this).get(CommonUtil.getClass(this))
             mViewModel.mBinding = mDataBinding
@@ -44,7 +50,10 @@ abstract class BaseFragment<VM : BaseViewModel<*,DB>,DB : ViewDataBinding>: Frag
         }
         return rootView
     }
-    abstract fun setLayoutResId():Int
+    /**
+     * 子类实现返回布局文件id(该方法不用实现，后期移除)
+     */
+    open fun setLayoutResId():Int = 0
 
     protected open fun initView(){}
 

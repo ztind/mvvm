@@ -10,7 +10,7 @@ import com.zt.mvvm.common.utils.StateType
 import com.zt.mvvm.repository.BaseRepository
 import com.zt.mvvm.viewmodel.BaseViewModel
 
-abstract class  BaseLifeCycleActivity<VM : BaseViewModel<*,DB>, DB : ViewDataBinding>: BaseActivity<VM, DB>() {
+abstract class  BaseLifeCycleActivity<VM : BaseViewModel<*,VB>, VB : ViewDataBinding>: BaseActivity<VM, VB>() {
 
     override fun initView() {
         super.initView()
