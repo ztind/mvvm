@@ -53,10 +53,6 @@ abstract  class BaseActivity<VM : BaseViewModel<*,VB>,VB : ViewDataBinding>: App
         AppManager.addActivity(this)
     }
     /**
-     * 子类实现返回布局文件id(该方法不用实现，后期移除)
-     */
-    open fun setLayoutResId() : Int = 0
-    /**
      * 初始化视图
      */
     protected open fun initView(){

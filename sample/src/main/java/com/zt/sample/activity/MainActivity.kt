@@ -1,7 +1,5 @@
 package com.zt.sample.activity
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.KeyEvent
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.zt.mvvm.view.BaseActivity
@@ -9,7 +7,6 @@ import com.zt.sample.R
 import com.zt.sample.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
-    override fun setLayoutResId(): Int = R.layout.activity_main
     override fun initView() {
         super.initView()
         //取消icon的默认着色

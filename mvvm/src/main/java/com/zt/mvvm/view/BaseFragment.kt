@@ -50,10 +50,6 @@ abstract class BaseFragment<VM : BaseViewModel<*,VB>,VB : ViewDataBinding>: Frag
         }
         return rootView
     }
-    /**
-     * 子类实现返回布局文件id(该方法不用实现，后期移除)
-     */
-    open fun setLayoutResId():Int = 0
 
     protected open fun initView(){}
 
