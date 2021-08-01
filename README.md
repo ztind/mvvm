@@ -79,7 +79,7 @@ sample：project demo
             /**
              * base url
              */
-            override fun baseUrl(): String  = "https://www.baidu.com"
+            override fun baseUrl(): String  = "you api url"
 
             /**
              * token
