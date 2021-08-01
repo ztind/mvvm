@@ -110,17 +110,11 @@ sample：project demo
              * 类实例获取
              */
             companion object{
-                var instance : Retrofits?=null
-                    get() {
-                        if (field==null){
-                            field = Retrofits()
-                        }
-                        return field
-                    }
-                @Synchronized
-                fun getRetrofitsInstance(): Retrofits {
-                    return instance!!
-                }
+                  val instance : Retrofits = Retrofits()
+                  @Synchronized
+                  fun getRetrofitsInstance(): Retrofits {
+                      return instance
+                  }
             }
         }
 

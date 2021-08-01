@@ -42,16 +42,10 @@ class Retrofits : AbstractRetrofits() {
      * 类实例获取
      */
     companion object{
-        var instance : Retrofits?=null
-            get() {
-                if (field==null){
-                    field = Retrofits()
-                }
-                return field
-            }
+        val instance : Retrofits = Retrofits()
         @Synchronized
         fun getRetrofitsInstance(): Retrofits {
-            return instance!!
+            return instance
         }
     }
 }
