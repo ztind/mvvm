@@ -1,8 +1,13 @@
 package com.zt.sample.activity
 
 import android.view.KeyEvent
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.gyf.immersionbar.ImmersionBar
 import com.zt.mvvm.common.utils.gotoActivity
 import com.zt.mvvm.view.BaseActivity
@@ -74,6 +79,30 @@ class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
         mDataBinding.bottomNavView.findViewById<BottomNavigationItemView>(R.id.navigation_dynamic).setOnLongClickListener { true }
         mDataBinding.bottomNavView.findViewById<BottomNavigationItemView>(R.id.navigation_message).setOnLongClickListener { true }
         mDataBinding.bottomNavView.findViewById<BottomNavigationItemView>(R.id.navigation_mine).setOnLongClickListener { true }
+        /**
+         * 未读消息
+         */
+        val navView: BottomNavigationView = findViewById(R.id.bottom_nav_view)
+        //获取整个的NavigationView,添加未读消息ui
+        val menuView: BottomNavigationMenuView = navView.getChildAt(0) as BottomNavigationMenuView
+        for (i in 0..2){
+            //这里就是获取所添加的每一个Tab(或者叫menu)，
+            val tab: View = menuView.getChildAt(i)
+            //这里就是获取所添加的每一个Tab(或者叫menu)，
+            val itemView = tab as BottomNavigationItemView
+            //加载我们的角标View，新创建的一个布局
+            val badge = LayoutInflater.from(this).inflate(R.layout.menu_badge, menuView, false)
+            val tx = badge.findViewById<TextView>(R.id.tv_msg_count)
+            if(i==0){
+                tx.setText("5")
+            }else if(i==1){
+                tx.setText("85")
+            }else{
+                tx.setText("99+")
+            }
+            //添加到Tab上
+            itemView.addView(badge)
+        }
     }
 
     /**
