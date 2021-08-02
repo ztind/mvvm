@@ -13,12 +13,12 @@ class TwoActivity :BaseActivity<TwoViewModel,ActivityTwoBinding>(){
     /**
      * 本activity进入动画
      */
-    override fun enterActivityAnim(): Int =  com.zt.mvvm.R.anim.translate_right_to_between
+    override fun enterActivityAnim(): Int =  com.zt.mvvm.R.anim.translate_down_to_between
 
     /**
      * 本activity退出动画
      */
-    override fun exitActivityAnim(): Int = R.anim.translate_between_to_left
+    override fun exitActivityAnim(): Int = R.anim.translate_between_to_down
 
     /**
      * 开启仿微信侧滑退出
