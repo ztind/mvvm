@@ -47,7 +47,7 @@ abstract  class BaseActivity<VM : BaseViewModel<*,VB>,VB : ViewDataBinding>: App
         mViewModel.mBinding = mDataBinding
         mDataBinding.lifecycleOwner = this
         initImmersionBar()
-        enterActivityAnim(R.anim.translate_right_to_between,R.anim.translate_none)
+        overridePendingTransition(enterActivityAnim(),R.anim.translate_none)
         initView()
         mViewModel.gotoInit()
         AppManager.addActivity(this)
@@ -130,9 +130,8 @@ abstract  class BaseActivity<VM : BaseViewModel<*,VB>,VB : ViewDataBinding>: App
         mSwipeBackHelper.setIsNavigationBarOverlap(false)
     }
     /**
-     * 是否支持滑动返回。这里在父类中默认返回 true 来支持滑动返回，如果某个界面不想支持滑动返回则重写该方法返回 false 即可
+     * 是否开启滑动返回 true开启 false关闭，之类重写实现自定义
      *
-     * @return
      */
     override fun isSupportSwipeBack(): Boolean = false
     /**
@@ -175,23 +174,19 @@ abstract  class BaseActivity<VM : BaseViewModel<*,VB>,VB : ViewDataBinding>: App
         mDataBinding.unbind()
         AppManager.removeActivity(this)
     }
+    /**
+     * activity进来时的切换动画(默认右边进入)
+     */
+    open fun enterActivityAnim():Int = R.anim.translate_right_to_between
+    /**
+     * activity销毁时的切换动画(默认右边出)
+     */
+    open fun exitActivityAnim() = R.anim.translate_between_to_right
 
-    /**
-     * activity进来时的切换动画
-     */
-    open fun enterActivityAnim(startAnim:Int,exitAnim:Int){
-        overridePendingTransition(startAnim,exitAnim)
-    }
-    /**
-     * activity销毁时的切换动画
-     */
     override fun finish(){
         super.finish()
         closeSoftware()
-        exitActivityAnim(R.anim.translate_lto_between,R.anim.translate_between_to_right)
-    }
-    open fun exitActivityAnim(startAnim:Int,exitAnim:Int){
-        overridePendingTransition(startAnim,exitAnim)
+        overridePendingTransition(R.anim.translate_none,exitActivityAnim())
     }
     /**
      * 点击返回键调用finish()执行退出界面动画

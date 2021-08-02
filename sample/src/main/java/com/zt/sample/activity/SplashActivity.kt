@@ -16,8 +16,7 @@ Date:2021/5/28
 class SplashActivity :AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ImmersionBar.with(this).statusBarDarkFont(false).fullScreen(true).navigationBarColor(android.R.color.transparent).hideBar(
-            BarHide.FLAG_HIDE_NAVIGATION_BAR).init()
+        ImmersionBar.with(this).statusBarDarkFont(false).fullScreen(true).navigationBarColor(android.R.color.transparent).hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR).init()
         Handler().postDelayed({
             gotoActivity<MainActivity>(this)
             finish()

@@ -4,7 +4,7 @@ import com.zt.mvvm.view.BaseFragment
 import com.zt.sample.databinding.FragmentHomeBinding
 
 /**
-Describe：HomeFragment界面
+Describe：首页
 Author:ZT
 Date:2021/5/28
  */

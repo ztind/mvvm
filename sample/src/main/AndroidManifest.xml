@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:name=".App"
-        android:theme="@style/Theme.KotlinMvvmJetpackAndroidProject">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".activity.SplashActivity" android:screenOrientation="portrait"
             android:theme="@style/SplashStyle"
             >
@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.TwoActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
