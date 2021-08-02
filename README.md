@@ -2,6 +2,7 @@
 #### 工程概要
 mvvm：base library <br/>
 sample：project demo
+本项目基于Kotlin语言,采用MVVM架构封装了Jetpack里常用的基础组件到mvvm依赖库里，内部封装了沉浸式状态栏,界面仿微信侧滑退出,网络请求等一些列功能
 
 #### 软件架构
 - Kotlin
