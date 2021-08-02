@@ -1,7 +1,7 @@
 
 #### 工程概要
 
-本项目基于Kotlin语言,采用MVVM架构封装了Jetpack里常用的基础组件到mvvm依赖库里，内部封装了:<br/>
+本项目基于Kotlin语言,采用MVVM架构封装了Jetpack里常用的基础组件到mvvm依赖库里，内部二次封装了:<br/>
 1.Activity/Fragment + ViewModel + Repository模式<br/>
 2.沉浸式状态栏<br/>
 3.仿微信侧滑退出界面<br/>
