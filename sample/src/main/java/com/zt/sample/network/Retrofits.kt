@@ -11,7 +11,7 @@ class Retrofits : AbstractRetrofits() {
     /**
      * base url
      */
-    override fun baseUrl(): String  = "https://www.baidu.com"
+    override fun baseUrl(): String  = "https://gank.io/"
 
     /**
      * token
@@ -42,7 +42,7 @@ class Retrofits : AbstractRetrofits() {
      * 类实例获取
      */
     companion object{
-        val instance : Retrofits = Retrofits()
+        private val instance : Retrofits = Retrofits()
         @Synchronized
         fun getRetrofitsInstance(): Retrofits {
             return instance

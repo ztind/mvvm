@@ -19,4 +19,10 @@ class App :Application() {
          */
         BGASwipeBackHelper.init(this, null)
     }
+    init {
+        instance = this
+    }
+    companion object {
+        lateinit var instance: App
+    }
 }

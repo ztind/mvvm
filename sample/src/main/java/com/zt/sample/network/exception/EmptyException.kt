@@ -1,4 +1,4 @@
-package com.zt.mvvm.network.exception
+package com.zt.sample.network.exception
 
 /**
  * 无数据异常

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.zt.sample.beans.MeiZi" />
+    </data>
+
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            app:img_normal_url="@{data.url}"
+            android:scaleType="centerCrop"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+        <RelativeLayout
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <TextView
+                tools:text="10秒萌定你"
+                android:text='@{data.author+"-"+data.title}'
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                tools:text="信不信，我10s就能萌定你"
+                android:text="@{data.desc}"
+                android:textSize="15sp"
+                android:lines="2"
+                android:ellipsize="end"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -32,7 +32,7 @@ class RetrofitManage private constructor() {
      * 线程安全的单列懒汉式
      */
     companion object {
-        val instance: RetrofitManage = RetrofitManage()
+        private val instance: RetrofitManage = RetrofitManage()
         //在Kotlin中，如果你需要将方法声明为同步，需要添加@Synchronized注解。
         @Synchronized
         fun getRetrofitFactoryInstance(): RetrofitManage {

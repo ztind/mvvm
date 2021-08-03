@@ -1,4 +1,4 @@
-package com.zt.mvvm.network.exception
+package com.zt.sample.network.exception
 
 /**
  * 业务异常
@@ -11,5 +11,5 @@ object BizException : RuntimeException() {
     /**
      * 状态码
      */
-    var code:Int = 0
+    var status:Int = 0
 }
