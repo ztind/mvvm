@@ -132,7 +132,7 @@
             suspend fun getData(@Path("page") page: Int, @Path("size") size: Int) : HttpResponse<MutableList<MeiZi>?>
         }
 
-        Repository具体实现：
+        Repository 中Flow包装：
 
         class NetworDemoRepository :BaseRepository{
             private val meiziAPI = Retrofits.getRetrofitsInstance().unauthorizedService().create(MeiZiAPI::class.java)
@@ -149,7 +149,7 @@
         viewModelScope.launch {
             mRepository.getData(page,size)
                 .onStart {
-
+                    //request start
                 }
                 .transform {
                     emit(CommonTransformHandler(it))
@@ -160,10 +160,10 @@
                     }
                 }
                 .onCompletion {
-                    finshRefreshAndLoadMor()
+                    //request end
                 }
                 .collectLatest {
-                    refreshUI(it)
+                    //get data to refresh ui
                 }
         }
 
