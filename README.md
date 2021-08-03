@@ -125,6 +125,48 @@
             }
         }
 
+        数据接口定义：
+
+        interface MeiZiAPI {
+            @GET("api/v2/data/category/Girl/type/Girl/page/{page}/count/{size}")
+            suspend fun getData(@Path("page") page: Int, @Path("size") size: Int) : HttpResponse<MutableList<MeiZi>?>
+        }
+
+        Repository具体实现：
+
+        class NetworDemoRepository :BaseRepository{
+            private val meiziAPI = Retrofits.getRetrofitsInstance().unauthorizedService().create(MeiZiAPI::class.java)
+            suspend fun getData(page:Int,size:Int):Flow<HttpResponse<MutableList<MeiZi>?>>{
+                return flow {
+                    val data = meiziAPI.getData(page,size)
+                    emit(data)
+                }.flowOn(Dispatchers.IO)
+            }
+        }
+
+        ViewModel中请求：
+
+        viewModelScope.launch {
+            mRepository.getData(page,size)
+                .onStart {
+
+                }
+                .transform {
+                    emit(CommonTransformHandler(it))
+                }
+                .catch {
+                    CommonExceptionHandler.handler(it,loadState,mActivity){
+                        ToastUtils.showShort(it.message)
+                    }
+                }
+                .onCompletion {
+                    finshRefreshAndLoadMor()
+                }
+                .collectLatest {
+                    refreshUI(it)
+                }
+        }
+
 #### 代码提交规范
 - `new:`  新功能 new: 增加xxx功能或模块
 - `update:`   功能变更、调整、优化等。  update: 更新xxx内容
