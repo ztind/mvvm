@@ -81,7 +81,7 @@
         }
 
 - 网络模块
-
+        AbstractRetrofits具体实现：
         class Retrofits : AbstractRetrofits() {
             /**
              * base url
@@ -126,14 +126,12 @@
         }
 
         数据接口定义：
-
         interface MeiZiAPI {
             @GET("api/v2/data/category/Girl/type/Girl/page/{page}/count/{size}")
             suspend fun getData(@Path("page") page: Int, @Path("size") size: Int) : HttpResponse<MutableList<MeiZi>?>
         }
 
         Repository 中Flow包装：
-
         class NetworDemoRepository :BaseRepository{
             private val meiziAPI = Retrofits.getRetrofitsInstance().unauthorizedService().create(MeiZiAPI::class.java)
             suspend fun getData(page:Int,size:Int):Flow<HttpResponse<MutableList<MeiZi>?>>{
@@ -145,7 +143,6 @@
         }
 
         ViewModel中请求：
-
         viewModelScope.launch {
             mRepository.getData(page,size)
                 .onStart {
