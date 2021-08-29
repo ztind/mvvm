@@ -18,7 +18,6 @@ import java.util.concurrent.TimeUnit
 
 /**
  * 提供Retrofit网络请求封装
- * https问题https://blog.csdn.net/lmj623565791/article/details/48129405
  */
 class RetrofitManage private constructor() {
 
