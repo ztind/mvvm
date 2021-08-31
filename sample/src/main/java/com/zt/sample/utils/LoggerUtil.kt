@@ -1,4 +1,4 @@
-package com.zt.mvvm.common.log
+package com.zt.sample.utils
 import android.util.Log
 
 /**

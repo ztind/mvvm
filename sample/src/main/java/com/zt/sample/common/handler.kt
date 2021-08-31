@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.JsonParseException
-import com.zt.mvvm.common.log.LoggerUtil
+import com.zt.sample.utils.LoggerUtil
 import com.zt.mvvm.common.utils.State
 import com.zt.mvvm.common.utils.StateType
 import com.zt.sample.R

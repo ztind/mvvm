@@ -1,5 +1,6 @@
 package com.zt.mvvm.network
 
+import okhttp3.Interceptor
 import retrofit2.Retrofit
 
 /**
@@ -23,6 +24,10 @@ abstract class AbstractRetrofits {
      */
     abstract fun headers():HashMap<String,String>
     /**
+     * http请求拦截器
+     */
+    abstract fun httpInterceptor(): Interceptor
+    /**
      * 链接超时(默认10秒)
      */
     open fun connectTime():Long = 10
@@ -40,7 +45,7 @@ abstract class AbstractRetrofits {
      * 获取认证的实例
      */
     fun authorizedService(): Retrofit{
-        return  RetrofitManage.getRetrofitFactoryInstance().getAuthorizedRetrofit(baseUrl(),headers(),connectTime(),readTime(),writeTime(),tokenKey()) {
+        return  RetrofitManage.getRetrofitFactoryInstance().getAuthorizedRetrofit(baseUrl(),headers(),connectTime(),readTime(),writeTime(),tokenKey(),httpInterceptor()) {
             tokenValue()
         }
     }
@@ -48,6 +53,6 @@ abstract class AbstractRetrofits {
      * 获取未认证的实例
      */
     fun unauthorizedService():Retrofit{
-        return RetrofitManage.getRetrofitFactoryInstance().getUnauthorizedRetrofit(baseUrl(),headers(),connectTime(),readTime(),writeTime(),tokenKey())
+        return RetrofitManage.getRetrofitFactoryInstance().getUnauthorizedRetrofit(baseUrl(),headers(),connectTime(),readTime(),writeTime(),tokenKey(),httpInterceptor())
     }
 }
