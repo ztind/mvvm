@@ -15,17 +15,18 @@
 - MVVM + Jetpack + Repository + Retrofit2 + Okhttp3 + Flow + Coroutines
 
 #### 快速开始
-1) 在 project 的 build.gradle 文件中找到 allprojects{} 代码块添加以下代码
+1) 在 project 的 build.gradle 文件中找到 allprojects{} 代码块添加
+
     allprojects {
         repositories {
             maven { url 'https://jitpack.io' }
         }
     }
-2) 在 app 的 build.gradle 文件中找到 dependencies{} 代码块添加以下代码
+2) 在 app 的 build.gradle 文件中找到 dependencies{} 代码块添加
+
     dependencies {
     	implementation 'io.github.ztind:mvvm:v1.0.0'
     }
-
 
 #### 使用示例
 
