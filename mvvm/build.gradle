@@ -105,3 +105,13 @@ dependencies {
     // Apache commons - lang3
     implementation 'org.apache.commons:commons-lang3:3.9'
 }
+
+//2.maven central 配置start
+ext {
+    artifact = 'mvvm'
+    libraryName = 'mvvm'
+    libraryDescription = '安卓mvvm+jetpack 库封装'
+    libraryVersion = 'v1.0.0'
+}
+apply from: '../maven-publish.gradle'
+//maven central 配置end

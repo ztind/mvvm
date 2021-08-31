@@ -42,26 +42,31 @@ class RetrofitManage private constructor() {
     /**
      * 需授权身份验证的api操作
      * @param baseUrl   指定的URL
-     * @param token     身份标识token
      * @param headers   请求头参数
+     * @param connect_time   链接超时(秒)
+     * @param read_time   读取超时(秒)
+     * @param write_time   写超时(秒)
+     * @param tokenKey   token key
+     * @param tokenValue     身份标识token,返回token
      * @return {@link Retrofit}对象
      */
-    fun getAuthorizedRetrofit(baseUrl: String, headers: HashMap<String, String>,version:()->String,getTokenCallBack:()->String): Retrofit {
+    fun getAuthorizedRetrofit(baseUrl: String, headers: HashMap<String, String>,connect_time:Long,read_time:Long,write_time:Long,tokenKey:String,tokenValue:()->String): Retrofit {
         if(authorizedClient==null){
             authorizedClient = clientBuilder
-                .connectTimeout(10, TimeUnit.SECONDS)
+                .connectTimeout(connect_time, TimeUnit.SECONDS)
+                .readTimeout(read_time,TimeUnit.SECONDS)
+                .writeTimeout(write_time,TimeUnit.SECONDS)
                 .connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS, ConnectionSpec.CLEARTEXT))
                 //FaceBook 网络调试器，可在Chrome调试网络请求，查看SharePreferences,数据库等
                 .addNetworkInterceptor(StethoInterceptor())
                 .addInterceptor(object : Interceptor {
                     @Throws(IOException::class)
                     override fun intercept(chain: Interceptor.Chain): Response {
-                        val requestBuilder = chain.request()
-                            .newBuilder()
-                            .header("version", version())
-                            .header("Authorization", getTokenCallBack())
-                            .header("Accept", "*/*")
-                        headers.forEach { requestBuilder.header(it.key, it.value) }
+                        val requestBuilder = chain.request().newBuilder().header("Accept","*/*")
+                        headers.forEach {
+                            requestBuilder.header(it.key, it.value)
+                        }
+                        requestBuilder.header(tokenKey, tokenValue())
                         return chain.proceed(requestBuilder.build())
                     }
                 })
@@ -77,17 +82,17 @@ class RetrofitManage private constructor() {
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
     }
-
     /**
      * 无需身份验证的api操作
      * @param baseUrl   指定的URL
      * @param headers   请求头参数
-     * @param clientId  客户端ID
-     * @param clientSec 客户端密钥
+     * @param connect_time   链接超时(秒)
+     * @param read_time   读取超时(秒)
+     * @param write_time   写超时(秒)
+     * @param tokenKey   token key
      * @return {@link Retrofit}对象
      */
-    fun getUnauthorizedRetrofit(baseUrl: String, headers: HashMap<String, String>, clientId: String, clientSec: String,version:()->String): Retrofit {
-        val encoded = Base64Utils.getBase64("$clientId:$clientSec")
+    fun getUnauthorizedRetrofit(baseUrl: String, headers: HashMap<String, String>,connect_time:Long,read_time:Long,write_time:Long,tokenKey:String): Retrofit {
         if(unauthorizedClient==null){
             unauthorizedClient  = clientBuilder
                 .connectTimeout(10, TimeUnit.SECONDS)
@@ -97,18 +102,19 @@ class RetrofitManage private constructor() {
                 .addInterceptor(object : Interceptor {
                     @Throws(IOException::class)
                     override fun intercept(chain: Interceptor.Chain): Response {
-                        val requestBuilder = chain.request()
-                            .newBuilder()
-                            .header("version", version())
-                            .header("Authorization", "Basic $encoded")
-                            .header("Accept", "*/*")
-                        headers.forEach { requestBuilder.header(it.key, it.value) }
+                        val requestBuilder = chain.request().newBuilder()
+                                .header("Accept","*/*")
+                        headers.forEach {
+                                if(it.key != tokenKey){
+                                    requestBuilder.header(it.key, it.value)
+                                }
+                        }
                         return chain.proceed(requestBuilder.build())
                     }
                 })
                 //http数据log，日志中打印出HTTP请求&响应数据
                 .addInterceptor(HttpLoggingInterceptor(HttpLog()).setLevel(HttpLoggingInterceptor.Level.BODY))
-                //.addInterceptor(LogIntercept())
+//                .addInterceptor(LogIntercept())
                 .build()
         }
         return retrofitBuilder
@@ -120,7 +126,7 @@ class RetrofitManage private constructor() {
     }
 
     /**
-     * http请求日志拦截器
+     * http请求-响应日志拦截器(1)
      */
     private class HttpLog : HttpLoggingInterceptor.Logger {
         override fun log(message: String) {
@@ -129,7 +135,7 @@ class RetrofitManage private constructor() {
     }
 
     /**
-     * http请求-响应日志拦截器
+     * http请求-响应日志拦截器(2)
      */
     private class LogIntercept : Interceptor {
         private val UTF8 = Charset.forName("UTF-8")
