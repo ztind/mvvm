@@ -192,18 +192,6 @@
                 }
         }
 
-#### 代码提交规范
-- `new:`  新功能 new: 增加xxx功能或模块
-- `update:`   功能变更、调整、优化等。  update: 更新xxx内容
-- `feature:`  对需求的响应，通常是有需求编号的情况。 feature:#需求编号，针对需求做了什么调整。
-- `bugfix:`   bug修复，通常是有指定bug号的情况。  bugfix:#BUG编号，具体描述修复内容。
-- `refactor:` 重构，不影响功能  refactor: 重构xxx功能及详细描述
-- `format:`   代码格式调整    format: 格式化了xxx代码
-- `comment:`  注释完善  comment: 完善了xxx注释信息
-- `config:`   配置文件修改    config: 调整了xxx配置信息
-- `junit:`    单元测试  junit: 进行了xxx单元测试
-- `publish:`  发布时更新   publish: 更新xxx版本信息
-
 ### LICENSE
 
        Copyright ztind
