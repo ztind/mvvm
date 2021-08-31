@@ -61,7 +61,7 @@ class Retrofits : AbstractRetrofits() {
     /**
      * 自定义拦截器
      */
-    override fun httpInterceptor(): Interceptor = LogIntercept2()
+    override fun httpInterceptor(): Interceptor? = LogIntercept2()
     /**
      * 类实例获取
      */

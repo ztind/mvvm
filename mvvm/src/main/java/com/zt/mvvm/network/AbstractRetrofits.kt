@@ -26,7 +26,7 @@ abstract class AbstractRetrofits {
     /**
      * http请求拦截器
      */
-    abstract fun httpInterceptor(): Interceptor
+    abstract fun httpInterceptor(): Interceptor?
     /**
      * 链接超时(默认10秒)
      */

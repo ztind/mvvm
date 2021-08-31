@@ -91,7 +91,9 @@ class RetrofitManage private constructor() {
     fun getUnauthorizedRetrofit(baseUrl: String, headers: HashMap<String, String>,connect_time:Long,read_time:Long,write_time:Long,tokenKey:String,httpInterceptor:Interceptor?): Retrofit {
         if(unauthorizedClient==null){
             clientBuilder
-                .connectTimeout(10, TimeUnit.SECONDS)
+                .connectTimeout(connect_time, TimeUnit.SECONDS)
+                .readTimeout(read_time,TimeUnit.SECONDS)
+                .writeTimeout(write_time,TimeUnit.SECONDS)
                 .connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS, ConnectionSpec.CLEARTEXT))
                 //FaceBook 网络调试器，可在Chrome调试网络请求，查看SharePreferences,数据库等
                 .addNetworkInterceptor(StethoInterceptor())
