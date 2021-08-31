@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.zt.sample">
+    package="com.ztind.sample">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
@@ -9,11 +9,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".App"
+        android:name="com.ztind.sample.App"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="m">
-        <activity android:name=".activity.SplashActivity" android:screenOrientation="portrait"
+        <activity android:name="com.ztind.sample.activity.SplashActivity" android:screenOrientation="portrait"
             android:theme="@style/SplashStyle"
             >
             <intent-filter>
@@ -21,9 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.TwoActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.NetworDemokActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.ztind.sample.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.ztind.sample.activity.TwoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.ztind.sample.activity.NetworDemokActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

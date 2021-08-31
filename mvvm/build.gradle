@@ -111,7 +111,7 @@ ext {
     artifact = 'mvvm'
     libraryName = 'mvvm'
     libraryDescription = '安卓mvvm+jetpack 库封装'
-    libraryVersion = 'v1.0.0'
+    libraryVersion = '1.0.1'
 }
 apply from: '../maven-publish.gradle'
 //maven central 配置end

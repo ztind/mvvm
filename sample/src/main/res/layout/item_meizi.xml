@@ -6,7 +6,7 @@
     <data>
         <variable
             name="data"
-            type="com.zt.sample.beans.MeiZi" />
+            type="com.ztind.sample.beans.MeiZi" />
     </data>
 
     <LinearLayout

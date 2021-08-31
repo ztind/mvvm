@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.zt.sample.fragment.HomeViewModel" />
+            type="com.ztind.sample.fragment.HomeViewModel" />
     </data>
 
     <LinearLayout
