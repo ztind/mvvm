@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.zt.sample.utils.LoggerUtil
 import com.zt.mvvm.common.utils.CommonUtil
 import com.zt.mvvm.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
