@@ -87,42 +87,69 @@
             /**
              * base url
              */
-            override fun baseUrl(): String  = "you api url"
-
+            override fun baseUrl(): String  = "https://gank.io/"
             /**
-             * token
+             * you token key
              */
-            override fun token(): String  = "you token"
-
+            override fun tokenKey(): String = "Authorization"
             /**
-             * 请求头参数:app版本名称
+             * you token value
              */
-            override fun version(): String = "1.0.0"
-
+            override fun tokenValue(): String = "token"
+            /**
+             * 链接超时(秒)
+             */
+            override fun connectTime(): Long = 10
+            /**
+             * 读取超时(秒)
+             */
+            override fun readTime(): Long = 10
+            /**
+             * 写超时(秒)
+             */
+            override fun writeTime(): Long = 10
             /**
              * 请求头参数,可自定义添加
              */
             override fun headers(): HashMap<String, String> {
                 val map = HashMap<String,String>()
+                //手机厂商
                 map["brand"] = android.os.Build.BRAND
+                //手机型号
                 map["model"] = android.os.Build.MODEL
+                //手机系统版本
                 map["release"] = android.os.Build.VERSION.RELEASE
+                //app版本
+                map["version"] = "1.0.0"
                 return map
             }
-
-            override fun clientId(): String = "sample"
-
-            override fun clientSec(): String = "sample"
-
+            /**
+             * 自定义拦截器
+             */
+            override fun httpInterceptor(): Interceptor = LogIntercept2()
             /**
              * 类实例获取
              */
             companion object{
-                  val instance : Retrofits = Retrofits()
-                  @Synchronized
-                  fun getRetrofitsInstance(): Retrofits {
-                      return instance
-                  }
+                private val instance : Retrofits = Retrofits()
+                @Synchronized
+                fun getRetrofitsInstance(): Retrofits {
+                    return instance
+                }
+            }
+            /**
+             * http请求-响应日志拦截器(1)
+             */
+            private class LogIntercept1 : HttpLoggingInterceptor.Logger {
+                override fun log(message: String) {
+                    //todo...
+                }
+            }
+            /**
+             * http请求-响应日志拦截器(2)
+             */
+            private class LogIntercept2 : Interceptor {
+                 //todo...
             }
         }
 

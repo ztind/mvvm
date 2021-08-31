@@ -23,12 +23,10 @@ class Retrofits : AbstractRetrofits() {
      * base url
      */
     override fun baseUrl(): String  = "https://gank.io/"
-
     /**
      * you token key
      */
     override fun tokenKey(): String = "Authorization"
-
     /**
      * you token value
      */
