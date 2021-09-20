@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KotlinMvvmJetpackAndroidProject</string>
+    <string name="app_name">mvvm+jetpack</string>
 
     <string name="title_home">首页</string>
     <string name="title_dynamic">动态</string>
