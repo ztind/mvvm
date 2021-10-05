@@ -18,16 +18,20 @@ object ToastUtils{
         if(toast==null){
            toast = Toast.makeText(App.instance.applicationContext,msg, Toast.LENGTH_SHORT)
         }
-        toast?.setGravity(Gravity.CENTER,0,0)
-        toast?.setText(msg)
-        toast?.show()
+        toast?.run {
+             setGravity(Gravity.CENTER,0,0)
+             setText(msg)
+             show()
+        }
     }
     fun showLong(msg: String) {
         if(toast==null){
             toast = Toast.makeText(App.instance.applicationContext,msg, Toast.LENGTH_LONG)
         }
-        toast?.setGravity(Gravity.CENTER,0,0)
-        toast?.setText(msg)
-        toast?.show()
+        toast?.run {
+            setGravity(Gravity.CENTER,0,0)
+            setText(msg)
+            show()
+        }
     }
 }

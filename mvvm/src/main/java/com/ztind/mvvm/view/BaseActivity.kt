@@ -101,8 +101,8 @@ abstract  class BaseActivity<VM : BaseViewModel<*,VB>,VB : ViewDataBinding>: App
     open fun closeSoftware() {
         val localView = this.currentFocus
         val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        if (localView != null) {
-            imm.hideSoftInputFromWindow(localView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+        localView?.let {
+            imm.hideSoftInputFromWindow(it.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
         }
     }
 
