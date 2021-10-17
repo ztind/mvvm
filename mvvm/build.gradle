@@ -86,8 +86,9 @@ dependencies {
     api 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
     //侧滑库
     api 'cn.bingoogolapple:bga-swipebacklayout:2.0.1@aar'
-    //ios风格对话框 v3
-    api 'com.kongzue.dialog_v3:dialog:3.1.8'
+    //ios风格对话框 dailogX
+    def dialogx_version = "0.0.43.beta13"
+    api "com.github.kongzue.DialogX:DialogX:${dialogx_version}"
     //glide
     api 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
