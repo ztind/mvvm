@@ -31,7 +31,7 @@
 2) 开启databinding支持，在项目的build.gradle文件中的android{}下添加如下代码
     ```
      buildFeatures{
-            dataBinding = true
+         dataBinding = true
      }
      ```
 3) 在 app 的 build.gradle 文件中找到 dependencies{} 代码块添加
