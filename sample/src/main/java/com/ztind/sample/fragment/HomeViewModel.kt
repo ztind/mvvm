@@ -1,5 +1,6 @@
 package com.ztind.sample.fragment
 
+import com.kongzue.dialogx.dialogs.MessageDialog
 import com.ztind.mvvm.common.utils.gotoActivity
 import com.ztind.mvvm.viewmodel.BaseViewModel
 import com.ztind.sample.activity.NetworDemokActivity
@@ -28,5 +29,8 @@ class HomeViewModel :BaseViewModel<HomeRepository,FragmentHomeBinding>() {
     }
     fun goNetworkDemoAty(){
         gotoActivity<NetworDemokActivity>(mFragment.mContext)
+    }
+    fun iosDialog(){
+        MessageDialog.show("标题", "正文内容", "确定", "取消")
     }
 }
