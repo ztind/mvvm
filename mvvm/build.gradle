@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
 android {
     compileSdkVersion 30
 
@@ -25,9 +24,6 @@ android {
     buildFeatures{
         dataBinding = true
     }
-}
-kapt {
-    generateStubs = true
 }
 allprojects {
     repositories {
@@ -96,7 +92,7 @@ dependencies {
     api "com.github.kongzue.DialogX:DialogXIOSStyle:${dialogx_version}"
     //glide
     api 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
     //smart智能刷新库
     api  'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
     api  'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
@@ -117,7 +113,7 @@ ext {
     artifact = 'mvvm'
     libraryName = 'mvvm'
     libraryDescription = '安卓mvvm+jetpack 库封装'
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 }
 apply from: '../maven-publish.gradle'
 //maven central 配置end

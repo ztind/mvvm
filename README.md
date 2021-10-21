@@ -38,7 +38,7 @@
 
     ```
     dependencies {
-        implementation 'io.github.ztind:mvvm:1.0.1'
+        implementation 'io.github.ztind:mvvm:1.0.2'
     }
     ```
 
