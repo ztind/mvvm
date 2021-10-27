@@ -60,4 +60,6 @@ dependencies {
 
     //引入封装库
     implementation project(":mvvm")
+    //腾讯mmkv
+    implementation 'com.tencent:mmkv-static:1.2.11'
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper
 import com.kongzue.dialogx.DialogX
 import com.kongzue.dialogx.style.IOSStyle
+import com.ztind.sample.utils.MMKVUtils
 
 /**
 Describe：文件描述
@@ -27,6 +28,10 @@ class App :Application() {
         DialogX.init(this)
         //设置为IOS主题
         DialogX.globalStyle = IOSStyle()
+        /**
+         * init mmkv
+         */
+        MMKVUtils.init(this)
     }
     init {
         instance = this
