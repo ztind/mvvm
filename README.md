@@ -44,7 +44,7 @@
 
 #### 使用示例
 
-- For xml布局文件(编写xml界面后转换成 databind 布局)
+- For xml布局文件: 编写xml界面后转换成 databind 布局
 
     ```
     <?xml version="1.0" encoding="utf-8"?>
