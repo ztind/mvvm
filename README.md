@@ -44,15 +44,28 @@
 
 #### 使用示例
 
+- For xml布局文件(编写xml界面后转换成 databind 布局)
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <data>
+
+        </data>
+        <LinearLayout>
+            ...
+        </LinearLayout>
+    </layout>
+
 - For Activity
 
-    Activity:
+    Activity: 继承BaseActivity泛型里传入对应的ViewModel和Binding类
 
         class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
 
         }
 
-    ViewModel:
+    ViewModel: 继承BaseViewModel泛型里传入对应的Repository(即Model)和Binding类
 
         class MainViewModel :BaseViewModel<MainRepository,ActivityMainBinding>(){
             private val mActivity by lazy {
@@ -67,7 +80,7 @@
             }
         }
 
-    Repository:
+    Repository: 继承BaseRepository
 
         class MainRepository :BaseRepository {
 
