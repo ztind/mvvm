@@ -15,7 +15,7 @@ Describe：文件描述
 Author:ZT
 Date:2021/8/3
  */
-class NetworDemoRepository :BaseRepository{
+class NetworkDemoRepository :BaseRepository{
     private val meiziAPI = Retrofits.getRetrofitsInstance().unauthorizedService().create(MeiZiAPI::class.java)
     /**
      * 获取妹纸数据

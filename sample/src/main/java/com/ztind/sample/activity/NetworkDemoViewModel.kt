@@ -19,9 +19,9 @@ Describe：文件描述
 Author:ZT
 Date:2021/8/3
  */
-class NetworDemoViewModel :BaseViewModel<NetworDemoRepository,ActivityNetworkDemoBinding>() {
+class NetworkDemoViewModel :BaseViewModel<NetworkDemoRepository,ActivityNetworkDemoBinding>() {
     private val mActivity by lazy {
-        mLifecycleOwner as NetworDemokActivity
+        mLifecycleOwner as NetworkDemokActivity
     }
     private var page = 1
     private val size = 1
