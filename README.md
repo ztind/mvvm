@@ -46,16 +46,18 @@
 
 - For xml布局文件(编写xml界面后转换成 databind 布局)
 
+    ```
     <?xml version="1.0" encoding="utf-8"?>
-    <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
-        <data>
+        <layout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <data>
 
-        </data>
-        <LinearLayout>
-            ...
-        </LinearLayout>
-    </layout>
+            </data>
+            <LinearLayout>
+                ...
+            </LinearLayout>
+        </layout>
+    ```
 
 - For Activity
 
